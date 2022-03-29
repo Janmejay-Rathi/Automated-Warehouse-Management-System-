@@ -1,0 +1,18 @@
+config_pyiot:
+  mqtt:
+    server_url: "broker.mqttdashboard.com"
+    server_port: 1883
+    topic_sub: /eyrc/vb/JjAaHhBb/orders
+    topic_pub: /eyrc/vb/JjAaHhBb/orders
+    qos: 0
+
+    sub_cb_ros_topic: "/ros_iot_bridge/mqtt/sub"   # ROS nodes can listed to this topic to receive data from MQTT Subscription
+
+  google_apps:
+    spread_sheet: "https://script.google.com/macros/s/AKfycbxVFoIleJXE6oyYroeSZCrsWAxDGxPtf9pt_4B5mPHwdpj_hzc-JqeLXw/exec"
+    submission_spread_sheet: "https://script.google.com/macros/s/AKfycbw5xylppoda-8HPjt2Tzq4ShU_Xef-Ik-hEtBPcPk0gdGw8095j4RZ7/exec"
+
+
+
+
+

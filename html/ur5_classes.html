@@ -1,0 +1,379 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>ur5_classes module &#8212; task5  documentation</title>
+    <link rel="stylesheet" href="_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="task5_sol module" href="task5_sol.html" /> 
+  </head>
+  <body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="task5_sol.html" title="task5_sol module"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">task5  documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="modules.html" accesskey="U">scripts</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-ur5_classes">
+<span id="ur5-classes-module"></span><h1>ur5_classes module<a class="headerlink" href="#module-ur5_classes" title="Permalink to this headline">¶</a></h1>
+<p>This module consist of ur5 classes which will be required by the warehouse control system</p>
+<dl class="class">
+<dt id="ur5_classes.Ur51">
+<em class="property">class </em><code class="descclassname">ur5_classes.</code><code class="descname">Ur51</code><a class="headerlink" href="#ur5_classes.Ur51" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<p>The class dedicated for controlling ur5_1</p>
+<dl class="method">
+<dt id="ur5_classes.Ur51.activate_conveyor">
+<code class="descname">activate_conveyor</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#ur5_classes.Ur51.activate_conveyor" title="Permalink to this definition">¶</a></dt>
+<dd><p>function for activating conveyor</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>value</strong> – The speed of conveyor ranging from 0 to 100</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Type:</th><td class="field-body">int</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ur5_classes.Ur51.activate_gripper">
+<code class="descname">activate_gripper</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#ur5_classes.Ur51.activate_gripper" title="Permalink to this definition">¶</a></dt>
+<dd><p>function for activating gripper</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>value</strong> – The value can be True for activating the grippe or False for
+deactivating the gripper</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Type:</th><td class="field-body">bool</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ur5_classes.Ur51.clear_octomap">
+<code class="descname">clear_octomap</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ur5_classes.Ur51.clear_octomap" title="Permalink to this definition">¶</a></dt>
+<dd><p>for clearing the octomap</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ur5_classes.Ur51.hard_set_joint_angles">
+<code class="descname">hard_set_joint_angles</code><span class="sig-paren">(</span><em>arg_list_joint_angles</em>, <em>arg_max_attempts</em><span class="sig-paren">)</span><a class="headerlink" href="#ur5_classes.Ur51.hard_set_joint_angles" title="Permalink to this definition">¶</a></dt>
+<dd><p>for hard set joint angles</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>arg_list_joint_angles</strong> – list of angles so that ur5 can reach to that position</li>
+<li><strong>arg_max_attempts</strong> – Maximum attempts that moveit can take to plan the trajectory</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Type:</th><td class="field-body"><p class="first">list</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><p class="first last">int</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ur5_classes.Ur51.moveit_hard_play_planned_path_from_file">
+<code class="descname">moveit_hard_play_planned_path_from_file</code><span class="sig-paren">(</span><em>arg_file_path</em>, <em>arg_file_name</em>, <em>arg_max_attempts</em><span class="sig-paren">)</span><a class="headerlink" href="#ur5_classes.Ur51.moveit_hard_play_planned_path_from_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>moveit hard play planned path from file</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>arg_file_path</strong> – The path of the file where saved trajectory is residing</li>
+<li><strong>arg_file_name</strong> – The name of saved trajectory yaml file</li>
+<li><strong>arg_max_attempts</strong> – Maximum attempts that moveit can take to plan the trajectory</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Type:</th><td class="field-body"><p class="first">str</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><p class="first">str</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Type:</th><td class="field-body"><p class="first last">int</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ur5_classes.Ur51.moveit_play_planned_path_from_file">
+<code class="descname">moveit_play_planned_path_from_file</code><span class="sig-paren">(</span><em>arg_file_path</em>, <em>arg_file_name</em><span class="sig-paren">)</span><a class="headerlink" href="#ur5_classes.Ur51.moveit_play_planned_path_from_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>for moveit play planned path from file</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>arg_file_path</strong> – The path of the file where saved trajectory is residing</li>
+<li><strong>arg_file_name</strong> – The name of saved trajectory yaml file</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Type:</th><td class="field-body"><p class="first">str</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><p class="first">str</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">The status whether specified saved trajectory is computed or not</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ur5_classes.Ur51.set_joint_angles">
+<code class="descname">set_joint_angles</code><span class="sig-paren">(</span><em>arg_list_joint_angles</em><span class="sig-paren">)</span><a class="headerlink" href="#ur5_classes.Ur51.set_joint_angles" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method is used for setting joint angles of ur5_1</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>arg_list_joint_angles</strong> – list of angles so that ur5 can reach to that position</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Type:</th><td class="field-body">list</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ur5_classes.Ur52">
+<em class="property">class </em><code class="descclassname">ur5_classes.</code><code class="descname">Ur52</code><a class="headerlink" href="#ur5_classes.Ur52" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<p>The class dedicated for controlling ur5_1</p>
+<dl class="method">
+<dt id="ur5_classes.Ur52.activate_conveyor">
+<code class="descname">activate_conveyor</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#ur5_classes.Ur52.activate_conveyor" title="Permalink to this definition">¶</a></dt>
+<dd><p>function for activating conveyor</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>value</strong> – The speed of conveyor ranging from 0 to 100</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Type:</th><td class="field-body">int</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ur5_classes.Ur52.activate_gripper">
+<code class="descname">activate_gripper</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#ur5_classes.Ur52.activate_gripper" title="Permalink to this definition">¶</a></dt>
+<dd><p>function for activating gripper</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>value</strong> – The value can be True for activating the grippe or False for
+deactivating the gripper</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Type:</th><td class="field-body">bool</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ur5_classes.Ur52.clear_octomap">
+<code class="descname">clear_octomap</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ur5_classes.Ur52.clear_octomap" title="Permalink to this definition">¶</a></dt>
+<dd><p>for clear octomap</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ur5_classes.Ur52.function_callback">
+<code class="descname">function_callback</code><span class="sig-paren">(</span><em>_p</em><span class="sig-paren">)</span><a class="headerlink" href="#ur5_classes.Ur52.function_callback" title="Permalink to this definition">¶</a></dt>
+<dd><p>function call back of logical camera 2
+This function will stop the conveyor once the pkg is under the logical camera2</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>_p</strong> – This is the message that is published on topic of logical camera2</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ur5_classes.Ur52.hard_set_joint_angles">
+<code class="descname">hard_set_joint_angles</code><span class="sig-paren">(</span><em>arg_list_joint_angles</em>, <em>arg_max_attempts</em><span class="sig-paren">)</span><a class="headerlink" href="#ur5_classes.Ur52.hard_set_joint_angles" title="Permalink to this definition">¶</a></dt>
+<dd><p>for hard set joint angles</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>arg_list_joint_angles</strong> – list of angles so that ur5 can reach to that position</li>
+<li><strong>arg_max_attempts</strong> – Maximum attempts that moveit can take to plan the trajectory</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Type:</th><td class="field-body"><p class="first">list</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><p class="first last">int</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ur5_classes.Ur52.moveit_hard_play_planned_path_from_file">
+<code class="descname">moveit_hard_play_planned_path_from_file</code><span class="sig-paren">(</span><em>arg_file_path</em>, <em>arg_file_name</em>, <em>arg_max_attempts</em><span class="sig-paren">)</span><a class="headerlink" href="#ur5_classes.Ur52.moveit_hard_play_planned_path_from_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>moveit hard play planned path from file</p>
+<p>Parameters :
+a)arg_file_path = The path of the file where saved trajectory is residing
+b)arg_file_name = The name of saved trajectory yaml file
+c)arg_max_attempts = Maximum attempts that moveit can take to plan the trajectory</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ur5_classes.Ur52.moveit_play_planned_path_from_file">
+<code class="descname">moveit_play_planned_path_from_file</code><span class="sig-paren">(</span><em>arg_file_path</em>, <em>arg_file_name</em><span class="sig-paren">)</span><a class="headerlink" href="#ur5_classes.Ur52.moveit_play_planned_path_from_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>for moveit play planned path from file</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>arg_file_path</strong> – The path of the file where saved trajectory is residing</li>
+<li><strong>arg_file_name</strong> – The name of saved trajectory yaml file</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Type:</th><td class="field-body"><p class="first">str</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><p class="first">str</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">The status whether specified saved trajectory is computed or not</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ur5_classes.Ur52.set_joint_angles">
+<code class="descname">set_joint_angles</code><span class="sig-paren">(</span><em>arg_list_joint_angles</em><span class="sig-paren">)</span><a class="headerlink" href="#ur5_classes.Ur52.set_joint_angles" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method is used for setting joint angles of ur5_2</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>arg_list_joint_angles</strong> – list of angles so that ur5 can reach to that position</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Type:</th><td class="field-body">list</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="task5_sol.html"
+                        title="previous chapter">task5_sol module</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="task5_sol.html" title="task5_sol module"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">task5  documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="modules.html" >scripts</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2021, dkf.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.7.
+    </div>
+  </body>
+</html>

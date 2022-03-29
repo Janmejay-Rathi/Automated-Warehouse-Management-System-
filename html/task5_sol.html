@@ -1,0 +1,238 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>task5_sol module &#8212; task5  documentation</title>
+    <link rel="stylesheet" href="_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="ur5_classes module" href="ur5_classes.html" />
+    <link rel="prev" title="pyiot package" href="pyiot.html" /> 
+  </head>
+  <body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="ur5_classes.html" title="ur5_classes module"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="pyiot.html" title="pyiot package"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">task5  documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="modules.html" accesskey="U">scripts</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-task5_sol">
+<span id="task5-sol-module"></span><h1>task5_sol module<a class="headerlink" href="#module-task5_sol" title="Permalink to this headline">¶</a></h1>
+<p>This module contains the functions that are required for the simultaneous working of two ur5 arms.
+This is required module for warehouse automation
+The data structure/algorithm used for sorting the packages is PRIORITY QUEUES</p>
+<dl class="class">
+<dt id="task5_sol.Warehouse">
+<em class="property">class </em><code class="descclassname">task5_sol.</code><code class="descname">Warehouse</code><a class="headerlink" href="#task5_sol.Warehouse" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<p>This class is the representation of the automated warehouse.
+It has capability of controlling the two ur5 arms and processing the orders.</p>
+<dl class="method">
+<dt id="task5_sol.Warehouse.func_callback_incomingorders">
+<code class="descname">func_callback_incomingorders</code><span class="sig-paren">(</span><em>message</em><span class="sig-paren">)</span><a class="headerlink" href="#task5_sol.Warehouse.func_callback_incomingorders" title="Permalink to this definition">¶</a></dt>
+<dd><p>Function callback for the subscriber of topic /2437/incomingorders</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>message</strong> – The message that is being published on the topic /2437/incomingorders</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Type:</th><td class="field-body">class: ‘pkg_ros_iot_bridge.msg._order.order’</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="task5_sol.Warehouse.get_order">
+<code class="descname">get_order</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#task5_sol.Warehouse.get_order" title="Permalink to this definition">¶</a></dt>
+<dd><p>To get new order from the orders that are being placed in the queue</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">This method returns the order with highest priority that is currently            present in the queues</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">‘pkg_ros_iot_bridge.msg._order.order’</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="task5_sol.Warehouse.get_row_col">
+<code class="descname">get_row_col</code><span class="sig-paren">(</span><em>val</em><span class="sig-paren">)</span><a class="headerlink" href="#task5_sol.Warehouse.get_row_col" title="Permalink to this definition">¶</a></dt>
+<dd><p>To get the row and col number. of a particular pkg</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>val</strong> – The key in the colors dictionary (package name)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Type:</th><td class="field-body">str</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">returns row no. and col no. of the required package.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">int</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="task5_sol.Warehouse.process_ur5_1">
+<code class="descname">process_ur5_1</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#task5_sol.Warehouse.process_ur5_1" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function is dedicated for the proper functioning of ur51</p>
+<ol class="arabic simple">
+<li>The high priority package among all present in the priority queue is returned        by get_order() function and saved in variable current_order for processing it.</li>
+<li>Appending the self._dispatched_order dictionary with current_order so that the        the process_ur5_2() function can ship the order that is being dispathced.</li>
+<li>Checking the shelf to get the row number and column number of the package type         described in the order.</li>
+<li>Setting the index for using waypoint and gripper lists</li>
+<li>Sending data to Dashboard and OrdersDispatched spreadheet tab</li>
+<li>After placing the order on the conveyor checking the status of conveyor_flag        which specifies that whether the previous order is being picked by ur5_2 or not.</li>
+</ol>
+</dd></dl>
+
+<dl class="method">
+<dt id="task5_sol.Warehouse.process_ur5_2">
+<code class="descname">process_ur5_2</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#task5_sol.Warehouse.process_ur5_2" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function is dedicated for the proper functioning of ur52</p>
+<ol class="arabic simple">
+<li>Ur52 will wait for the package to come under logical_camera_2.</li>
+<li>Once package is detected the self._dispatched_order queue is used to get        the order which needs to be shipped.</li>
+<li>Getting the type of the item that package signifies</li>
+<li>Once the package is picked by ur52, conveyor_flag status is set so that for         next order the conveyor can be activated.</li>
+<li>On the basis of the package type, dropping package into its respective bin</li>
+<li>Sending data into OrdersShipped and Dashboard spreadsheet.</li>
+</ol>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="task5_sol.init_package_data">
+<code class="descclassname">task5_sol.</code><code class="descname">init_package_data</code><span class="sig-paren">(</span><em>data</em>, <em>color</em>, <em>row_number</em>, <em>col_number</em><span class="sig-paren">)</span><a class="headerlink" href="#task5_sol.init_package_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function will initialize the data about the package which is on shelf</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>data</strong> – dictionary to store information about the package</li>
+<li><strong>color</strong> – color of the packages</li>
+<li><strong>row_number</strong> – row number of the package</li>
+<li><strong>col_number</strong> – col number of the package</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">returns the information about the specified package on the shelf</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">dictionary</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="task5_sol.main">
+<code class="descclassname">task5_sol.</code><code class="descname">main</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#task5_sol.main" title="Permalink to this definition">¶</a></dt>
+<dd><p>This is the main driver function. The auto_warehouse is the object that is being created by       using the class Warehouse() to represent the automated warehouse.</p>
+<ol class="arabic simple">
+<li>Creating Subscriber of /2437/incomingorders/ topic to store the incoming orders</li>
+<li>Getting the decoded info about QR code present on the package at        location [row_number, col_number] on the shelf and append it into auto_warehouse.colors dict.</li>
+<li>Once the QR code is decode sending data into Inventory spreadsheet.</li>
+<li>After processing the QR codes on the packages, two threads are initiated        i.e. auto_warehouse.process_ur5_1 and auto_warehouse.process_ur5_2 to start       functioning of the two ur5 arms simultaneously</li>
+</ol>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="pyiot.html"
+                        title="previous chapter">pyiot package</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="ur5_classes.html"
+                        title="next chapter">ur5_classes module</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="ur5_classes.html" title="ur5_classes module"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="pyiot.html" title="pyiot package"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">task5  documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="modules.html" >scripts</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2021, dkf.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.7.
+    </div>
+  </body>
+</html>

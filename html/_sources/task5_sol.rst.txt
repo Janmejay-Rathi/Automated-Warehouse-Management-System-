@@ -1,0 +1,7 @@
+task5\_sol module
+=================
+
+.. automodule:: task5_sol
+    :members:
+    :undoc-members:
+    :show-inheritance:

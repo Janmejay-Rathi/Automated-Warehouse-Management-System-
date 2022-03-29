@@ -1,0 +1,176 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>camera_class module &#8212; task5  documentation</title>
+    <link rel="stylesheet" href="_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="node_action_server_ros_iot_bridge module" href="node_action_server_ros_iot_bridge.html" />
+    <link rel="prev" title="action_client module" href="action_client.html" /> 
+  </head>
+  <body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="node_action_server_ros_iot_bridge.html" title="node_action_server_ros_iot_bridge module"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="action_client.html" title="action_client module"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">task5  documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="modules.html" accesskey="U">scripts</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-camera_class">
+<span id="camera-class-module"></span><h1>camera_class module<a class="headerlink" href="#module-camera_class" title="Permalink to this headline">¶</a></h1>
+<p>The module consist of Camera1 class which is used by the 2d Camera of warehouse</p>
+<dl class="class">
+<dt id="camera_class.Camera1">
+<em class="property">class </em><code class="descclassname">camera_class.</code><code class="descname">Camera1</code><a class="headerlink" href="#camera_class.Camera1" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<p>This class is dedicated for the image processing of the images recieved by
+the 2D camera of the Warehouse</p>
+<dl class="method">
+<dt id="camera_class.Camera1.callback">
+<code class="descname">callback</code><span class="sig-paren">(</span><em>data</em><span class="sig-paren">)</span><a class="headerlink" href="#camera_class.Camera1.callback" title="Permalink to this definition">¶</a></dt>
+<dd><p>This is the function callback for the subscriber of the topic
+/eyrc/vb/camera_1/image_raw</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> – This is the data which is published on the topic /eyrc/vb/camera_1/image_raw</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="camera_class.Camera1.decode_qr_on_package">
+<code class="descname">decode_qr_on_package</code><span class="sig-paren">(</span><em>row_number</em>, <em>col_number</em><span class="sig-paren">)</span><a class="headerlink" href="#camera_class.Camera1.decode_qr_on_package" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method will crop the original image and will add contrast to the image
+so that the image becomes clear for decoding QR code</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>row_number</strong> (<em>int</em>) – Specifies the pkg row no. whose QR code is to be decoded</li>
+<li><strong>col_number</strong> (<em>int</em>) – Specifies the pkg col no. whose QR code is to be decoded</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">This function will return required decoded information of the cropped image.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">element of :class: ‘pyzbar.pyzbar.Decoded’ object</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="camera_class.Camera1.get_qr_data">
+<code class="descname">get_qr_data</code><span class="sig-paren">(</span><em>arg_image</em><span class="sig-paren">)</span><a class="headerlink" href="#camera_class.Camera1.get_qr_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method will deode the QR code present in the image.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>arg_image</strong> – The image in which QR code is present</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The decoded info about the QR code in the cropped image</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">element of :class:’pyzbar.pyzbar.Decoded’ object</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="action_client.html"
+                        title="previous chapter">action_client module</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="node_action_server_ros_iot_bridge.html"
+                        title="next chapter">node_action_server_ros_iot_bridge module</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="node_action_server_ros_iot_bridge.html" title="node_action_server_ros_iot_bridge module"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="action_client.html" title="action_client module"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">task5  documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="modules.html" >scripts</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2021, dkf.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.7.
+    </div>
+  </body>
+</html>
